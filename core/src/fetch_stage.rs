@@ -81,7 +81,7 @@ impl FetchStage {
                     tpu_sender_max_len = std::cmp::max(tpu_sender_max_len, tpu_sender.len());
                 }
             })
-            .unwrap();
+            .expect("failed to spawn fetch stage thread");
 
         Self {
             thread_hdls: vec![fwd_thread_hdl],

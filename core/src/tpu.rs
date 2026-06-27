@@ -93,7 +93,7 @@ impl Tpu {
                         ..QuicServerParams::default()
                     },
                 )
-                .unwrap()
+                .expect("failed to spawn QUIC server thread")
                 .thread
             })
             .collect::<Vec<_>>();
@@ -118,7 +118,7 @@ impl Tpu {
                             ..QuicServerParams::default()
                         },
                     )
-                    .unwrap()
+                    .expect("failed to spawn QUIC server thread")
                     .thread
                 })
                 .collect::<Vec<_>>(),
